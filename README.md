@@ -1,3 +1,3 @@
-# Learning Platform to exchange training
+# Platform to exchange video training
 
 this project is building
