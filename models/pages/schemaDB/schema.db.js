@@ -2,11 +2,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Create Schema for Lectures
+// Create Schema for Pages
 const schemaPages = new Schema({
   name: { type: String, required: true },
   slug: { type: String, required: true },
-  cover: { type: String },
+  cover: { type: Schema.Types.ObjectId, ref: "file" },
   block: [
     {
       _blockId: Schema.Types.ObjectId,
@@ -18,5 +18,5 @@ const schemaPages = new Schema({
   dateLastModified: { type: Date, default: Date.now, required: true },
 });
 
-// Export Schama and Create model for Lectures
+// Export Schama and Create model for Pages
 module.exports = mongoose.model("page", schemaPages);

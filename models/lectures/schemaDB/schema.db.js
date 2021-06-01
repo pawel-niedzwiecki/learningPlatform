@@ -7,6 +7,10 @@ const schemaLectures = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   cover: { type: Schema.Types.ObjectId, ref: "file" },
+  createdBy: { type: Schema.Types.ObjectId, ref: "user", required: true },
+  shareFor: [{ type: Schema.Types.ObjectId, ref: "user" }],
+  dateAdded: { type: Date, default: Date.now, required: true },
+  dateLastModified: { type: Date, default: Date.now, required: true },
   section: [
     {
       _sectionID: Schema.Types.ObjectId,
@@ -32,8 +36,6 @@ const schemaLectures = new Schema({
       ],
     },
   ],
-  dateAdded: { type: Date, default: Date.now, required: true },
-  dateLastModified: { type: Date, default: Date.now, required: true },
 });
 
 // Export Schama and Create model for Lectures
