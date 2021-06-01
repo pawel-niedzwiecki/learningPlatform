@@ -9,6 +9,7 @@ const schemaFiles = new Schema({
   name: { type: String, required: true },
   dateAdded: { type: Date, default: Date.now, required: true },
   dateLastModified: { type: Date, default: Date.now, required: true },
+  createdBy: { type: Schema.Types.ObjectId, ref: "user", required: true },
 });
 
 // Export Schama and Create model for files
