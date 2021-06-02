@@ -6,8 +6,21 @@ var configDB = require("./config/db.config");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+// main route
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+
+// doc route
+var indexDocRouter = require("./routes/documentation/index.doc.routes");
+var filesDocRouter = require("./routes/documentation/files.doc.routes");
+var lecturesDocRouter = require("./routes/documentation/lectures.doc.routes");
+var pagesDocRouter = require("./routes/documentation/pages.doc.routes");
+var usersDocRouter = require("./routes/documentation/users.doc.routes");
+
+// api route
+var filesAPIRouter = require("./routes/api/files/files.routes");
+var lecturesAPIRouter = require("./routes/api/lectures/lectures.routes");
+var pagesAPIRouter = require("./routes/api/pages/pages.routes");
+var usersAPIRouter = require("./routes/api/users/users.routes");
 
 var app = express();
 
@@ -31,8 +44,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// main
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+
+// doc
+app.use("/doc", indexDocRouter);
+app.use("/doc", filesDocRouter);
+app.use("/doc", lecturesDocRouter);
+app.use("/doc", pagesDocRouter);
+app.use("/doc", usersDocRouter);
+
+// api
+app.use("/api/v1/files", filesAPIRouter);
+app.use("/api/v1/lectures", lecturesAPIRouter);
+app.use("/api/v1/pages", pagesAPIRouter);
+app.use("/api/v1/users", usersAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
