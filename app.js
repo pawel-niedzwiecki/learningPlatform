@@ -10,11 +10,14 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 
 // doc route
-var indexDocRouter = require("./routes/documentation/index.doc.routes");
-var filesDocRouter = require("./routes/documentation/files.doc.routes");
-var lecturesDocRouter = require("./routes/documentation/lectures.doc.routes");
-var pagesDocRouter = require("./routes/documentation/pages.doc.routes");
-var usersDocRouter = require("./routes/documentation/users.doc.routes");
+var selectDocRouter = require("./routes/documentation/select.doc.routes");
+
+// doc v1 rote
+var startDocV1Router = require("./routes/documentation/v1/start/start.doc.routes");
+var filesDocV1Router = require("./routes/documentation/v1/files/files.doc.routes");
+var lecturesDocV1Router = require("./routes/documentation/v1/lectures/lectures.doc.routes");
+var pagesDocV1Router = require("./routes/documentation/v1/pages/pages.doc.routes");
+var usersDocV1Router = require("./routes/documentation/v1/users/users.doc.routes");
 
 // api route
 var filesAPIRouter = require("./routes/api/files/files.routes");
@@ -47,12 +50,15 @@ app.use(express.static(path.join(__dirname, "public")));
 // main
 app.use("/", indexRouter);
 
-// doc
-app.use("/doc", indexDocRouter);
-app.use("/doc", filesDocRouter);
-app.use("/doc", lecturesDocRouter);
-app.use("/doc", pagesDocRouter);
-app.use("/doc", usersDocRouter);
+// doc select
+app.use("/doc", selectDocRouter);
+
+// doc v1
+app.use("/doc/v1", startDocV1Router);
+app.use("/doc/v1/files", filesDocV1Router);
+app.use("/doc/v1/lectures", lecturesDocV1Router);
+app.use("/doc/v1/pages", pagesDocV1Router);
+app.use("/doc/v1/users", usersDocV1Router);
 
 // api
 app.use("/api/v1/files", filesAPIRouter);
