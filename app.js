@@ -77,8 +77,8 @@ app.use('/doc/v1/lectures', lecturesDocV1Router)
 app.use('/api/v1/auth', authAPIRouter)
 app.use('/api/v1/files', filesAPIRouter)
 app.use('/api/v1/pages', pagesAPIRouter)
-app.use('/api/v1/users', passport.authenticate('jwt', { session: false }), usersAPIRouter)
 app.use('/api/v1/lectures', lecturesAPIRouter)
+app.use('/api/v1/users', passport.authenticate('jwt', { session: false }), usersAPIRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
