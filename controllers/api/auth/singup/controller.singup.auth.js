@@ -1,14 +1,11 @@
 // Import modules and plugin
-var usersModules =
-  require("../../../../models/users/users.model").SchemaUsersDB;
+var usersModules = require("../../../../models/users/users.model").SchemaUsersDB;
 
 // this is controller for singup users in api
-exports.users_singup_post = async function (req, res, next) {
+exports.auth_singup_post = async function (req, res, next) {
   // i send mesage when user not gives me email or passord
   if (!req.body.email || !req.body.password)
-    return res
-      .status(400)
-      .json({ success: false, message: "email & password is require" });
+    return res.status(400).json({ success: false, message: "email & password is require" });
 
   // i try create new user
   await new usersModules({
@@ -23,9 +20,7 @@ exports.users_singup_post = async function (req, res, next) {
         });
       if (err.keyPattern.email === 1 && err.code === 11000)
         // i send mesage when is not unique email
-        return res
-          .status(400)
-          .json({ success: false, message: "not is unique" });
+        return res.status(400).json({ success: false, message: "not is unique" });
     }
 
     // i send mesage when i finish create new user

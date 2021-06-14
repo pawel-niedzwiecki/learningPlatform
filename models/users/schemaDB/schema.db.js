@@ -1,5 +1,6 @@
 // Dependencies import
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -13,16 +14,17 @@ const validateEmail = function (email) {
 const schemaUsers = new Schema(
   {
     email: {
+      index: true,
       trim: [true, "err trim"],
-      type: String,
+      type: [String, "err type"],
       unique: [true, "err unique"],
       required: [true, "err required"],
       lowercase: [true, "err lowercase"],
       validate: [validateEmail, "err valid"],
     },
-    password: { type: String, required: [true, "err password"] },
     salt: { type: String, trim: true },
     avatar: { type: Schema.Types.ObjectId, ref: "file" },
+    password: { type: String, required: [true, "err password"] },
   },
   {
     timestamps: true, // created_at / updated_at
@@ -30,7 +32,7 @@ const schemaUsers = new Schema(
 );
 
 schemaUsers.pre("save", async function (next) {
-  const newSalt = await bcrypt.genSalt(10);
+  const newSalt = await bcrypt.genSalt(Number(process.env.SALTROUNDS));
   const hash = await bcrypt.hash(this.password, newSalt);
   this.salt = newSalt;
   this.password = hash;
