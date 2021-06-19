@@ -15,6 +15,8 @@ exports.auth_login_post = function (req, res, next) {
       })
     }
 
+    console.log(user)
+
     // send response if auth is true
     req.login(user, { session: false }, (err) => {
       if (err) {
@@ -29,8 +31,18 @@ exports.auth_login_post = function (req, res, next) {
           try {
             // send message when token does not exist
             if (!token) return res.status(400).json({ auth: false, message: 'err token' })
+            const { _id, email, level, createdAt, updatedAt } = user
+
             // send message when token is ok and error is false
-            return res.json({ id: user._id, auth: true, level: user.level, token })
+            return res.json({
+              auth: true,
+              token,
+              _id,
+              email,
+              level,
+              createdAt,
+              updatedAt,
+            })
           } catch (err) {
             // send message when error is true
             return res.status(400).json({ auth: false, message: 'err token' })
