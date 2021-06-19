@@ -20,11 +20,12 @@ const indexRouter = require('./routes/index')
 const selectDocRouter = require('./routes/documentation/select.doc.routes')
 
 // doc v1 rote
+const authDocV1Router = require('./routes/documentation/v1/auth/auth.doc.routes')
 const startDocV1Router = require('./routes/documentation/v1/start/start.doc.routes')
 const filesDocV1Router = require('./routes/documentation/v1/files/files.doc.routes')
-const lecturesDocV1Router = require('./routes/documentation/v1/lectures/lectures.doc.routes')
 const pagesDocV1Router = require('./routes/documentation/v1/pages/pages.doc.routes')
 const usersDocV1Router = require('./routes/documentation/v1/users/users.doc.routes')
+const lecturesDocV1Router = require('./routes/documentation/v1/lectures/lectures.doc.routes')
 
 // api route
 const filesAPIRouter = require('./routes/api/files/files.routes')
@@ -67,11 +68,12 @@ app.use('/', indexRouter)
 app.use('/doc', selectDocRouter)
 
 // doc v1
-app.use('/doc/v1', startDocV1Router)
-app.use('/doc/v1/files', filesDocV1Router)
-app.use('/doc/v1/pages', pagesDocV1Router)
-app.use('/doc/v1/users', usersDocV1Router)
-app.use('/doc/v1/lectures', lecturesDocV1Router)
+app.use('/doc', startDocV1Router)
+app.use('/doc/auth', authDocV1Router)
+app.use('/doc/files', filesDocV1Router)
+app.use('/doc/pages', pagesDocV1Router)
+app.use('/doc/users', usersDocV1Router)
+app.use('/doc/lectures', lecturesDocV1Router)
 
 // api
 app.use('/api/v1/auth', authAPIRouter)
