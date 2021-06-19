@@ -56,16 +56,25 @@ block content
             strong auth 
             span (true or false)
           li 
-            strong id 
+            strong token (JWT) 
+            span (when auth is true)
+          li 
+            strong _id 
+            span (when auth is true)
+          li 
+            strong email 
             span (when auth is true)
           li 
             strong level 
             span (when auth is true)
           li 
-            strong token (JWT) 
+            strong createdAt 
+            span (when auth is true)
+          li 
+            strong updatedAt 
             span (when auth is true)
         h5 example response : 
-        code { "id": "60c8a751ba17078f291ac130", "auth": true, "level": 0, "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYzhhNzUxYmExNzA3OGYyOTFhYzEzMCIsImxldmVsIjowLCJpYXQiOjE2MjM4NjQ1NjI2NTV9.5DX_1zlvDoRvlUdS4ZqeXs6y3c9DzG-Ww97pxi0jCn0" }
+        code { "auth": true, "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2QxMzkwMDhjMjU5MmM3ODJlMjlkYiIsImxldmVsIjowLCJpYXQiOjE2MjQxODUzNzk2ODF9.F6OuOQi_v3jrURLYGT2rHWq8HTXcfyV0I5HNmk3M9EU", "_id": "60cd139008c2592c782e29db", "email": "hello@uxu.pl", "level": 0, "createdAt": "2021-06-18T21:43:44.729Z", "updatedAt": "2021-06-18T21:43:44.729Z" }
         hr
         h5 When data with email or password is false, you will get response : 
         ul(class='mt-3')
