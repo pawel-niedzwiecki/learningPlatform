@@ -4,16 +4,13 @@ const express = require('express')
 const router = express.Router()
 const usersController = require('../../../controllers/api/users/users.controllers')
 
-// post api users add.
-router.post('/add', usersController.users_add_post)
+// put api users edit.
+router.put('/edit', usersController.users_edit_post)
 
-// post api users edit.
-router.post('/edit', usersController.users_edit_post)
-
-// post api users delete.
+// delete api users delete.
 router.delete('/delete', usersController.users_delete_post)
 
-// post api users find.
-router.post('/find', usersController.users_find_post)
+// get api users find.
+router.get('/find', usersController.users_find_post)
 
 module.exports = router
