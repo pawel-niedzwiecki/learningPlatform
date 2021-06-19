@@ -1,5 +1,9 @@
 // Import modules and plugin
+<<<<<<< HEAD
 var usersModules = require('../../../../models/users/users.model').SchemaUsersDB
+=======
+var usersModules = require('../../../../models/users/users.model').UsersDB
+>>>>>>> test
 
 // this is controller for singup users in api
 exports.auth_singup_post = async function (req, res, next) {
