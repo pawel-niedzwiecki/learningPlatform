@@ -39,19 +39,11 @@ block content
 
     div(class='col-12 mt-5')
       h3(class='mb-3 p-0') LOGIN:
-<<<<<<< HEAD
     div(class="col-12 alert alert-success")
       div(class='col-12 px-0 d-flex align-items-center')
         h4(class='bg-success text-light py-1 px-4 me-3 mb-0', style='border-radius:3px;width: max-content') POST
         p(class='m-0') /api/v1/auth/login
         a(class='btn btn-success ms-auto', data-bs-toggle="collapse", href="#login", role="button", aria-expanded="false", aria-controls="login") More
-=======
-    div(class="col-12 alert alert-primary")
-      div(class='col-12 px-0 d-flex align-items-center')
-        h4(class='bg-primary text-light py-1 px-4 me-3 mb-0', style='border-radius:3px;width: max-content') GET
-        p(class='m-0') /api/v1/auth/login
-        a(class='btn btn-primary ms-auto', data-bs-toggle="collapse", href="#login", role="button", aria-expanded="false", aria-controls="login") More
->>>>>>> test
       div(class="collapse", id="login")
         hr
         h5 Send in ,,BODY"
@@ -64,7 +56,6 @@ block content
             strong auth 
             span (true or false)
           li 
-<<<<<<< HEAD
             strong token (JWT) 
             span (when auth is true)
           li 
@@ -72,15 +63,11 @@ block content
             span (when auth is true)
           li 
             strong email 
-=======
-            strong id 
->>>>>>> test
             span (when auth is true)
           li 
             strong level 
             span (when auth is true)
           li 
-<<<<<<< HEAD
             strong createdAt 
             span (when auth is true)
           li 
@@ -88,12 +75,6 @@ block content
             span (when auth is true)
         h5 example response : 
         code { "auth": true, "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2QxMzkwMDhjMjU5MmM3ODJlMjlkYiIsImxldmVsIjowLCJpYXQiOjE2MjQxODUzNzk2ODF9.F6OuOQi_v3jrURLYGT2rHWq8HTXcfyV0I5HNmk3M9EU", "_id": "60cd139008c2592c782e29db", "email": "hello@uxu.pl", "level": 0, "createdAt": "2021-06-18T21:43:44.729Z", "updatedAt": "2021-06-18T21:43:44.729Z" }
-=======
-            strong token (JWT) 
-            span (when auth is true)
-        h5 example response : 
-        code { "id": "60c8a751ba17078f291ac130", "auth": true, "level": 0, "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYzhhNzUxYmExNzA3OGYyOTFhYzEzMCIsImxldmVsIjowLCJpYXQiOjE2MjM4NjQ1NjI2NTV9.5DX_1zlvDoRvlUdS4ZqeXs6y3c9DzG-Ww97pxi0jCn0" }
->>>>>>> test
         hr
         h5 When data with email or password is false, you will get response : 
         ul(class='mt-3')

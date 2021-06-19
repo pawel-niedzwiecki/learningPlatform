@@ -15,8 +15,6 @@ exports.auth_login_post = function (req, res, next) {
       })
     }
 
-    console.log(user)
-
     // send response if auth is true
     req.login(user, { session: false }, (err) => {
       if (err) {
