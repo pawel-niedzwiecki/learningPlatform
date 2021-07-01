@@ -3,6 +3,7 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
 
+
 // this is controller for auth users in api
 exports.auth_login_post = function (req, res, next) {
   // passport authenticate

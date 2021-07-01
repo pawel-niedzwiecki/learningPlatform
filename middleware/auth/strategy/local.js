@@ -19,13 +19,13 @@ passport.use(
             // if password is true , i send response in callback
             if (result) {
               return callBack(null, user, {
-                message: 'Logged In Successfully',
+                message: 'logged In Successfully',
               })
             }
 
             // if password is false , i send response in callback
             return callBack(null, false, {
-              message: 'Incorrect email or password.',
+              message: 'incorrect email or password.',
             })
           })
         })
